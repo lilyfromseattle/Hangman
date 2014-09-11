@@ -1,3 +1,5 @@
+require 'colorize'
+
 class Hangman
   attr_accessor :word
   def initialize(word)
@@ -107,17 +109,17 @@ class Hangman
       @wrong_guesses << someguess
       puts "Sorry, that letter isn't in the word!"
       if @wrong_guesses.length == 1
-        @line3 << "O"
+        @line3 << "O".colorize(:red)
       elsif @wrong_guesses.length == 2
-        @line4 << "/"
+        @line4 << "/".colorize(:orange)
       elsif @wrong_guesses.length == 3
-        @line4 << "|"
+        @line4 << "|".colorize(:yellow)
       elsif @wrong_guesses.length == 4
-        @line4 << "\\"
+        @line4 << "\\".colorize(:green)
       elsif @wrong_guesses.length == 5
-        @line5 << "/ "
+        @line5 << "/ ".colorize(:blue)
       elsif @wrong_guesses.length == 6
-        @line5 << "\\"
+        @line5 << "\\".colorize(:purple)
       end
     end
   end
